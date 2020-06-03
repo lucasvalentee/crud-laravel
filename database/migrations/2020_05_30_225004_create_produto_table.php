@@ -25,6 +25,9 @@ class CreateProdutoTable extends Migration
             $table->smallInteger('NivelDeReposicao');
             $table->boolean('Descontinuado');
             $table->timestamps();
+
+            $table->foreign('IDFornecedor')->references('IDFornecedor')->on('fornecedores');
+            $table->foreign('IDCategoria')->references('IDCategoria')->on('categorias');
         });
     }
 

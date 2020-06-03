@@ -6,10 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Categoria extends Model
 {
-    protected $fillable = [];
+    protected $fillable = ['IDCategoria', 'NomeCategoria', 'Descricao', 'Figura'];
+    protected $primaryKey = 'IDCategoria';
+    public $timestamps = false;
 
-    public function produtos()
+    public function produto()
     {
-        return $this->belongsTo(Produto::class);
+        return $this->hasMany(Produto::class, 'IDProduto');
     }
 }
